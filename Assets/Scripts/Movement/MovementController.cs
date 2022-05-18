@@ -42,6 +42,7 @@ public class MovementController : MonoBehaviour
     {
         yield return new WaitForSeconds(45);
         enjineStart = false;
+        startButton.interactable = true;
     }
 
     public void SwitchEngineStart() {
