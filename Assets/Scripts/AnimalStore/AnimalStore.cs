@@ -50,10 +50,7 @@ public class AnimalStore : MonoBehaviour
                 GameObject chicken = Instantiate(this.chicken);
                 chicken.transform.position = spawnPoint.position;
                 chicken.GetComponent<AnimalMovement>().points.AddRange(points.ToArray());
-                if (Harvesting.plants > 0)
-                {
-                    Clicker.coefficient += 1;
-                }
+                Clicker.coefficient += 1;
                 chickens++;
                 if (chickens >= maxChicken) chickenButton.interactable = false;
 

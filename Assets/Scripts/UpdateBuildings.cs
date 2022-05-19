@@ -76,7 +76,15 @@ public class UpdateBuildings : MonoBehaviour
     {
         if (UIcontroller.mode == UIcontroller.Mode.ClickerMode)
         {
-            Clicker.clicks += Clicker.coefficient; 
+            if (Harvesting.plants > 0)
+            {
+                Clicker.clicks += Clicker.coefficient;
+                Harvesting.plants -= 1;
+                Harvesting.OnPlantsCountChange?.Invoke();
+            }
+            else {
+                Clicker.clicks++;
+            }
             Clicker.Click?.Invoke();
         }
     }
