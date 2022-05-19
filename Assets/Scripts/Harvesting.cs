@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Harvesting : MonoBehaviour
 {
-    
     public static int plants;
     public static UnityEvent OnPlantsCountChange = new UnityEvent();
 

@@ -18,8 +18,8 @@ public class AnimalMovement : MonoBehaviour
         PointUpdate();
         if (points.Count > 0) 
             agent.SetDestination(points[i].position);
-        Debug.Log(points.Count);
-        Debug.Log(agent.pathEndPosition);
+        //Debug.Log(points.Count);
+        //Debug.Log(agent.pathEndPosition);
     }
 
     public void PointUpdate()

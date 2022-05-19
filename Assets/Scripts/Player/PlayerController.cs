@@ -33,11 +33,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    //Воспроизводить звук трактора
     public void PlayAudio(AudioClip clip)
     {
         GetComponent<AudioSource>().PlayOneShot(clip);
     }
+    //Не воспроизводить звук трактора
     public void NoPlayAudio(AudioClip clip)
     {
         GetComponent<AudioSource>().Stop();

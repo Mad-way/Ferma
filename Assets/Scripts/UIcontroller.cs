@@ -16,7 +16,7 @@ public class UIcontroller : MonoBehaviour
 
     private void Awake()
     {
-        Harvesting.OnPlantsCountChange.AddListener(() => { textOfPlants.text = Harvesting.plants.ToString(); });
+        Harvesting.OnPlantsCountChange.AddListener(() => { textOfPlants.text = Harvesting.plants.ToString(); }); //Текст отвечающий за растания
     }
 
     private void Start()
@@ -36,18 +36,18 @@ public class UIcontroller : MonoBehaviour
         animalCamera.SetActive(false);
         houseUI.SetActive(false);
         switch (id) {
-            case (int)Mode.ClickerMode:
+            case (int)Mode.ClickerMode: //Кликер мод
                 mainPanel.SetActive(true);
                 camera2.SetActive(true);
                 clickText.SetActive(true);
                 houseUI.SetActive(true);
                 break;
-            case (int)Mode.TractorMode:
+            case (int)Mode.TractorMode: //Трактор мод
                 clickText.SetActive(true);
                 tractor.SetActive(true);
                 tractorPanel.SetActive(true);
                 break;
-            case (int)Mode.StoreMode:
+            case (int)Mode.StoreMode: // Магазин мод
                 clickText.SetActive(true);
                 animalCamera.SetActive(true);
                 storePanel.SetActive(true);

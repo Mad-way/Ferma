@@ -16,16 +16,15 @@ public class BuildingState
 public class UpdateBuildings : MonoBehaviour
 {
     
-    [SerializeField]
-    private int currentLevel;
+    [SerializeField] private int currentLevel;
     [SerializeField] private List<BuildingState> states = new List<BuildingState>();
     [SerializeField] private Button updateButton;
     [SerializeField] private Text textOfLevel;
 
-    void Start()
+    void Awake()
     {
         Clicker.Click.AddListener(() => CheckLevel());
-        for (int i = 0; i < states.Count; i++)
+        for (int i = 1; i < states.Count; i++)
         {
             states[i].gameObject.SetActive(false);
         }
@@ -82,6 +81,7 @@ public class UpdateBuildings : MonoBehaviour
         }
     }
 
+     //Звук клика улучшения
     public void PlayAudio(AudioClip clip)
     {
         GetComponent<AudioSource>().PlayOneShot(clip);

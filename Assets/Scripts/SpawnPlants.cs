@@ -13,7 +13,8 @@ public class SpawnPlants : MonoBehaviour
 
     IEnumerator SpawnCD()
     {
-        yield return new WaitForSeconds(1);
+    
+        yield return new WaitForSeconds(15);
         Instantiate(objToSpawn).transform.position = spawnPoint.transform.position;
     }
 

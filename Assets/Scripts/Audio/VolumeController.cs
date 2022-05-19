@@ -11,12 +11,12 @@ public class VolumeController : MonoBehaviour
 
     [SerializeField] private GameObject mainItems, settingsItems;
 
-    public static event Action<float> OnVolumeChanged;
+    //public static event Action<float> OnVolumeChanged;
 
 
     private void Start()
     {
-        GetComponentInChildren<Slider>().value = PlayerPrefs.GetFloat("MusicVolume", 1);        
+        GetComponentInChildren<Slider>().value = PlayerPrefs.GetFloat("MusicVolume", 1);
     }
 
     public void ChangeVolume(float volume)
@@ -25,6 +25,8 @@ public class VolumeController : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
+
+    //Кнопки переключения на микшер
     public void SettingsClick()
     {
         mainItems.SetActive(false);

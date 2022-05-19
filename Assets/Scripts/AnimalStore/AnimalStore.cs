@@ -24,7 +24,7 @@ public class AnimalStore : MonoBehaviour
 
     public void Buy(int id)
     {
-        if (Clicker.clicks >= cost[(Animals)id] && Harvesting.plants > 0)
+        if (Clicker.clicks >= cost[(Animals)id])
         {
             Spawn((Animals)id);
             Clicker.clicks -= cost[(Animals)id];
@@ -50,7 +50,10 @@ public class AnimalStore : MonoBehaviour
                 GameObject chicken = Instantiate(this.chicken);
                 chicken.transform.position = spawnPoint.position;
                 chicken.GetComponent<AnimalMovement>().points.AddRange(points.ToArray());
-                Clicker.coefficient += 1;
+                if (Harvesting.plants > 0)
+                {
+                    Clicker.coefficient += 1;
+                }
                 chickens++;
                 if (chickens >= maxChicken) chickenButton.interactable = false;
 

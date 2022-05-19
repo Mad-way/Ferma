@@ -21,30 +21,31 @@ public class MovementController : MonoBehaviour
 
     public void SetInputForward(float input) {
         inputForward = input;
-
     }
-    // Update is called once per frame
+    
     void Update()
     {
         if (enjineStart)
         {
             player.MovePosition(player.position + player.transform.forward * inputForward * speed * Time.deltaTime);
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR //Движение в юнити эдиторе
             player.MoveRotation(Quaternion.Euler(0, player.rotation.eulerAngles.y + variableJoystick.Horizontal * speedRotation * Time.deltaTime, 0));
-#else
+#else //Движение в релизе
         player.MoveRotation(Quaternion.Euler(0, player.rotation.eulerAngles.y + variableJoystick.Horizontal * speedRotation * inputForward * Time.deltaTime, 0));
 #endif
         }
     }
 
-    IEnumerator BreakCD()
+    IEnumerator BreakCD() //"Поломка" двигателя
     {
         yield return new WaitForSeconds(45);
         enjineStart = false;
         startButton.interactable = true;
     }
 
+
+    //Пеерлючение завода двигателя
     public void SwitchEngineStart() {
         if (!enjineStart)
         {
